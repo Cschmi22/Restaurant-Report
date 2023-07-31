@@ -1,0 +1,59 @@
+﻿@model Restaurant_Reports.Models.UpdateSalesViewModel
+@{
+}
+
+<h1>Update Sales</h1>
+<form method="post" action="Add" class="mt-5">
+    <div class="mb-3">
+        <label for="" class="form-label">Week</label>
+        <input type="date" class="form-control" asp-for="Week">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Course</label>
+        <input type="number" class="form-control" asp-for="Course">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Name</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Monday Sales</label>
+        <input type="number" class="form-control" asp-for="MonSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Tuesday Sales</label>
+        <input type="number" class="form-control" asp-for="TuesSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Wednesday Sales</label>
+        <input type="number" class="form-control" asp-for="WedSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Thursday Sales</label>
+        <input type="number" class="form-control" asp-for="ThursSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Friday Sales</label>
+        <input type="number" class="form-control" asp-for="FriSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Saturday Sales</label>
+        <input type="number" class="form-control" asp-for="SatSales">
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Sunday Sales</label>
+        <input type="number" class="form-control" asp-for="SunSales">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

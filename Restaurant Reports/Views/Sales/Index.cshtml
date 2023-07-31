@@ -1,0 +1,85 @@
+﻿@model List<Restaurant_Reports.Models.Domain.SalesReport>
+@{
+    string GetSortOrder(string columnName)
+    {
+        if (string.IsNullOrEmpty(ViewData["CurrentSort"] as string) || ViewData["CurrentSort"].ToString() != columnName)
+        {
+            return "asc";
+        }
+        else
+        {
+            return ViewData["CurrentSort"].ToString().ToLower() == "asc" ? "desc" : "asc";
+        }
+    }
+}
+
+
+<h1> Sales</h1>
+<p>
+    <a asp-action="Add" class="btn btn-primary">Add New Sale</a>
+    <a asp-action="Index" asp-route-sortOrder="asc" class="btn btn-secondary">Order by Date Asc</a>
+    <a asp-action="Index" asp-route-sortOrder="desc" class="btn btn-secondary">Order by Date Desc</a>
+</p>
+<table class=" table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("Id")">Id</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("Week")">Week</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("Course")">Course</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("Name")">Name</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("MonSales")">Monday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("TuesSales")">Tuesday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("WedSales")">Wednesday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("ThursSales")">Thursday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("FriSales")">Friday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("SatSales")">Saturday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("SunSales")">Sunday Sales</a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@GetSortOrder("TotalSales")">Total Sales</a>
+            </th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var sales in Model)
+        {
+            <tr>
+                <td>@sales.Id</td>
+                <td>@sales.Week.ToString("MM-dd-yyyy")</td>
+                <td>@sales.Course</td>
+                <td>@sales.Name</td>
+                <td>@sales.MonSales</td>
+                <td>@sales.TuesSales</td>
+                <td>@sales.WedSales</td>
+                <td>@sales.ThursSales</td>
+                <td>@sales.FriSales</td>
+                <td>@sales.SatSales</td>
+                <td>@sales.SunSales</td>
+                <td>@sales.TotalSales</td>
+                <td><a href="Sales/View/@sales.Id">View</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
