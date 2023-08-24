@@ -12,8 +12,8 @@ using Restaurant_Reports.Data;
 namespace Restaurant_Reports.Migrations
 {
     [DbContext(typeof(RedDBContext))]
-    [Migration("20230726173609_Salary Update")]
-    partial class SalaryUpdate
+    [Migration("20230824174054_First")]
+    partial class First
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
